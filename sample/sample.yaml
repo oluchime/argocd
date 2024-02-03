@@ -1,1 +1,19 @@
 #Add config here
+#
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: kubernetes
+        image: mylandmarktech/spring-boot-mongo:latest
